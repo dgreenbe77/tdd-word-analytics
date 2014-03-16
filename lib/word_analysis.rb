@@ -14,17 +14,17 @@ class Words
   end
 
   def common_words
-    textray = @text.split('').delete_if {|element| element.match(/[-!$%^&*()_+|~=`{}#@\[\]:";'<>?,.\/]/)}.join('').split(' ')
-    word_count = textray.inject(Hash.new(0)) {|hash, word| hash[word.downcase] += 1; hash}.sort_by {|k,v| v}.pop(3)
+    wordray = @text.split('').delete_if {|element| element.match(/[-!$%^&*()_+|~=`{}#@\[\]:";'<>?,.\/]/)}.join('').split(' ')
+    word_count = wordray.inject(Hash.new(0)) {|hash, word| hash[word.downcase] += 1; hash}.sort_by {|k,v| v}.pop(3)
   end
 
   def common_letters
-    textray = @text.scan(/[a-zA-Z]/).inject(Hash.new(0)){|hash, char| hash[char] += 1; hash}.sort_by {|k,v| v}.pop(3)
+    @text.scan(/[a-zA-Z]/).inject(Hash.new(0)){|hash, char| hash[char] += 1; hash}.sort_by {|k,v| v}.pop(3)
   end
 
   def unique_words
-    textray = @text.downcase.split('').delete_if {|element| element.match(/[-!$%^&*()_+|~=`{}#@\[\]:";'<>?,.\/]/)}.join('').scan(/\w+/)
-    unique_count = textray.inject(Hash.new(0)) {|hash, word| hash[word.downcase] += 1; hash}.select {|k,v| v == 1}.count
+    uniqray = @text.downcase.split('').delete_if {|element| element.match(/[-!$%^&*()_+|~=`{}#@\[\]:";'<>?,.\/]/)}.join('').scan(/\w+/)
+    unique_count = uniqray.inject(Hash.new(0)) {|hash, word| hash[word.downcase] += 1; hash}.select {|k,v| v == 1}.count
   end
 
 end
