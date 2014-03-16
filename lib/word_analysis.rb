@@ -10,7 +10,7 @@ class Words
   end
 
   def element_count(regex)
-    textray = @text.scan(regex).count
+    @text.scan(regex).count
   end
 
   def common_words
