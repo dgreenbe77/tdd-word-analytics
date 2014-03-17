@@ -22,13 +22,12 @@ class Words
     @text.scan(/[a-zA-Z]/).inject(Hash.new(0)){|hash, char| hash[char] += 1; hash}.sort_by {|k,v| v}.pop(3)
   end
 
-  def unique_words
+  def unique_words_count
     wordray = @text.scan(/[a-zA-Z0-9 ]/).join('').scan(/\w+/)
     wordray.inject(Hash.new(0)) {|hash, word| hash[word.downcase] += 1; hash}.select {|k,v| v == 1}.count
   end
 
 end
-
 
 
 

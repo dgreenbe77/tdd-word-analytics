@@ -17,7 +17,7 @@ describe 'Word Analytics' do
   end
 
   it 'Counts the number of wizardly symbols' do
-    expect(words.element_count(/[-!$%^&*()_+|~=`{}#@\[\]:";'<>?,.\/]/)).to eq(3)
+    expect(words.element_count(/[^a-zA-Z|\d|\s]/)).to eq(3)
   end
 
   it 'Counts the three most common wizardly words' do
@@ -29,7 +29,7 @@ describe 'Word Analytics' do
   end
 
   it 'Counts the number of unique wizardly words' do
-    expect(words.unique_words).to eq(2)
+    expect(words.unique_words_count).to eq(2)
   end
 
 end
